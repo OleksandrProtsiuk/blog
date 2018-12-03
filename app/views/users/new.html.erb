@@ -1,0 +1,17 @@
+
+<div class="container">
+  <small><p>Use this form to log in or to create a new account</p></small>
+<%= form_for @user do |f| %>
+    <p>
+    Name<br>
+    <%= f.text_field(:name, { :class => 'form-control' }) %>
+    </p>
+    <p>
+      Password<br>
+      <%= f.password_field(:password_digest, { :class => 'form-control' }) %>
+    </p>
+    <p>
+      <%= f.submit('Go !', { :class => 'btn btn-success' }) %>
+    </p>
+  <% end %>
+</div>

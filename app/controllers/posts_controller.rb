@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  http_basic_authenticate_with name: 'alex', password: '123456', exept: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show]
 
   def index
   @post = Post.all
@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   def create
     # render plain: params[:post].inspect
     @post = Post.new(post_params)
+    @post.user = @current_user
 
     if @post.save
       redirect_to @post
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :user)
   end
 end
