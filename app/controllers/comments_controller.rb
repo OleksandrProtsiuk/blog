@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_action :require_login
   # http_basic_authenticate_with name: 'alex', password: '123456'
 
   def create
