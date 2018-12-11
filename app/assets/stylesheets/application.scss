@@ -1,19 +1,42 @@
 @import 'bootstrap' ;
 
+h1 {
+
+}
+
+.alert-notice {
+  color: firebrick;
+
+}
+
+.error_messages, .alert-alert {
+  color: #B00100;
+}
+
+
+
+
 /* links */
 a { text-decoration: none;
   color: black;
 }
 a:hover {
+  color: green;
   text-decoration: underline;
 }
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /* other */
 .debug_dump {
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
+  @include box_sizing
 }
 
 /* footer */

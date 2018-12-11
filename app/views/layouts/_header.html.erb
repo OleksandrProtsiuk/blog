@@ -8,12 +8,12 @@
       <span data-toggle="tooltip" data-placement="right" title="Go Home"><%= link_to image_tag('logo.jpg', width: 70), home_path %></span>
     </div>
     <div class="col-4 d-flex justify-content-end align-items-center">
-      <span class="text-muted"><%= current_user.email if current_user %></span>
-      <p>&nbsp</p>
 
       <span>
       <% if current_user %>
-        <%= link_to 'Logout', logout_path %>
+          <%= link_to current_user.email, user_path(current_user.id) %>
+          <small>&nbsp</small>
+          <%= link_to 'Logout', logout_path %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
           <small>&nbspor&nbsp </small>
