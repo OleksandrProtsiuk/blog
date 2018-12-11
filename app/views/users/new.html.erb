@@ -1,17 +1,35 @@
-
-<div class="container">
-  <small><p>Use this form to log in or to create a new account</p></small>
+<div class="row">
+<div class="col-sm-6">
+<h1>Sign Up</h1>
 <%= form_for @user do |f| %>
-    <p>
-    Name<br>
-    <%= f.text_field(:name, { :class => 'form-control' }) %>
-    </p>
-    <p>
-      Password<br>
-      <%= f.password_field(:password_digest, { :class => 'form-control' }) %>
-    </p>
-    <p>
-      <%= f.submit('Go !', { :class => 'btn btn-success' }) %>
-    </p>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email,  { :class => 'form-control' } %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, { :class => 'form-control' } %>
+  </div>
+  <div>
+    <p>&nbsp</p>
+  </div>
+  <div class="actions"><%= f.submit "Sign Up", { :class => 'btn btn-outline-dark'} %></div>
+<% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <p>this is a text about Sign in and other staff... </p>
+  </div>
+
 </div>

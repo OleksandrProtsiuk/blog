@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
-  get 'sessions/login'
-  post 'sessions/login' => 'sessions#create', as: 'log_in'
-  get 'sessions/logout', as: 'log_out'
-  get 'users/new'
+  root 'static_pages#home', as: 'home'
+
+  get 'static_pages/contacts', as: 'contacts'
+  get 'static_pages/help', as: 'help'
+
+  get 'sessions/new'
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :users
+  resources :sessions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'posts#index', as: 'home'
-
-  get 'about' => 'pages#about', as: 'about'
-
-  get 'reg' => 'users#new'
-  post 'users' => 'users#create'
-
-  post 'sessions' => 'sessions#create'
-
-  resources :posts do
-    resources :comments
-  end
-
 end
