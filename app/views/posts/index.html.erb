@@ -1,0 +1,13 @@
+<h3>Main Page</h3>
+<h1>All About Us</h1>
+
+<% @post.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+    <h1 class="card-title"><%= post.title %></h1>
+    <p class="card-text"><%= post.body %></p>
+      <p class="card-text"><%= post.user %></p>
+      <%= link_to 'More', post_path(post), :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

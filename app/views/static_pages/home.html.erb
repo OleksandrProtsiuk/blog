@@ -1,2 +1,13 @@
-<h1>Home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+<% @post.each do |post| %>
+  <div class="card">
+    <small class="card-text">
+      Posted by: <%= User.find(post.user_id).username %>, Last update: <%= post.updated_at %>
+    </small>
+    <h1 class="card-title"><%= link_to post.title, post_path(post) %></h1>
+    <div class="card-body">
+      <p class="card-text"><%= post.body %></p>
+    </div>
+    <hr>
+  </div>
+<% end %>

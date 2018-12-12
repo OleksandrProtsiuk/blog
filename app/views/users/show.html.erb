@@ -1,6 +1,8 @@
 
 <div class="container">
   <h1>User Account Page</h1>
+  <p><%= @user.username %></p>
   <i><small>funny small text about jerks</small></i>
   <p><%= @user.email %></p>
+  <span class="text-muted"><%= link_to 'Add Post', new_post_path %></span>
 </div>

@@ -1,0 +1,39 @@
+
+<p><%= User.find(@post.user_id).username %></p>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<hr>
+<% if current_user.id == @post.user_id %>
+  <%= link_to 'Edit', edit_post_path %>
+  <%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are You Sure ?'}, :class => 'delete'  %>
+  <hr>
+  <% end %>
+
+<h4>Comments</h4>
+<% @post.comments.each do |comment| %>
+  <div class="container">
+    <small><strong><%= comment.username %></strong></small>
+    <small><%= comment.body %></small>
+  </div>
+<% end %>
+
+<h4>Add New Comment</h4>
+<%= form_for([@post, @post.comments.build]) do |f|  %>
+
+  <div class="field">
+    <%= f.hidden_field(:username, :value => current_user.username )%>
+    <%= f.hidden_field(:user_id, :value => current_user.id )%>
+    <%= f.hidden_field(:post_id, :value => @post.id )%>
+  </div>
+
+  <div class="field">
+    <%= f.text_area(:body, { :class => 'form-control' }) %>
+  </div>
+  <div>
+    <p>&nbsp</p>
+  </div>
+  <div class="action">
+    <%= f.submit('Add Comment', { :class => 'btn btn-outline-dark' }) %>
+  </div>
+<% end %>
+
