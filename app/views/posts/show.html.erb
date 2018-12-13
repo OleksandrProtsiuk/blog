@@ -1,22 +1,29 @@
 
 <p><%= User.find(@post.user_id).username %></p>
 <h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
-<hr>
+<p><%= @post.body.html_safe %></p>
+<!-- alternative ??  <%== %> -->
+
+<% if current_user %>
 <% if current_user.id == @post.user_id %>
+  <hr>
   <%= link_to 'Edit', edit_post_path %>
   <%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are You Sure ?'}, :class => 'delete'  %>
   <hr>
+  <% else %>
+    <hr>
+  <% end %>
   <% end %>
 
 <h4>Comments</h4>
 <% @post.comments.each do |comment| %>
-  <div class="container">
-    <small><strong><%= comment.username %></strong></small>
-    <small><%= comment.body %></small>
+  <div class="row">
+    <small><strong><%= comment.username %></strong>:&nbsp</small>
+    <small><%= comment.body.html_safe %></small>
   </div>
 <% end %>
 
+<% if current_user %>
 <h4>Add New Comment</h4>
 <%= form_for([@post, @post.comments.build]) do |f|  %>
 
@@ -27,7 +34,7 @@
   </div>
 
   <div class="field">
-    <%= f.text_area(:body, { :class => 'form-control' }) %>
+    <%= f.text_area(:body, { :class => 'form-control quill_container' }) %>
   </div>
   <div>
     <p>&nbsp</p>
@@ -36,4 +43,4 @@
     <%= f.submit('Add Comment', { :class => 'btn btn-outline-dark' }) %>
   </div>
 <% end %>
-
+<% end %>
