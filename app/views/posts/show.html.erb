@@ -1,5 +1,10 @@
 
-<p><%= User.find(@post.user_id).username %></p>
+<small><%= User.find(@post.user_id).username %></small><br>
+<small>Tags:
+  <% @post.tag_list.each do |tag| %>
+    <%= link_to tag, tagged_path(tag: tag) %>
+  <% end %>
+</small>
 <h1><%= @post.title %></h1>
 <p><%= @post.body.html_safe %></p>
 <!-- alternative ??  <%== %> -->

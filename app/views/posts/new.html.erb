@@ -8,12 +8,16 @@
   <% end %>
 
     <div class="field">
-      <%= f.label :title %><br />
-      <%= f.text_field :title,  { :class => 'form-control' } %>
+      <%= f.label :title %><br/>
+      <%= f.text_field :title, { :class => 'form-control' } %>
     </div>
     <div class="field">
-      <%= f.label :text %><br />
+      <%= f.label :text %><br/>
       <%= f.text_area :body,  { :class => 'form-control quill_container' } %>
+    </div>
+    <div class="field">
+      <%= f.label :tags %><br />
+      <%= f.text_field :tag_list, { :class => 'form-control' }  %>
     </div>
     <div class="field">
       <%= f.hidden_field(:user_id, :value => current_user.id )%>
