@@ -20,3 +20,28 @@
 //= require bootstrap
 
 //= require quill.global
+
+hljs.configure({   // optionally configure hl js
+    languages: ['javascript', 'ruby', 'python']
+});
+
+var defaults = {
+    theme: 'snow',
+    modules: {
+        syntax: true,
+        toolbar: [
+            // [{'font': ['serif', 'monospace' ]}],
+            // [{ 'header': [2, 3, 4, false] }],
+            [{ 'size': ['small', false, 'large', 'huge'] }],
+            [{ 'color': [] }, { 'background': [] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'link', 'video', 'image', 'code-block'],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'indent': '-1'}, { 'indent': '+1' }],
+            ['clean']
+        ]
+    }
+};
+
+//This is the global config object
+Quilljs.setDefaults(defaults);
