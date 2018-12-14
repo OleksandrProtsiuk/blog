@@ -12,8 +12,9 @@
 <% if current_user %>
 <% if current_user.id == @post.user_id %>
   <hr>
-  <%= link_to 'Edit', edit_post_path %>
-  <%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are You Sure ?'}, :class => 'delete'  %>
+    <%= link_to 'Edit', edit_post_path %>
+    <a class="delete" data-toggle="modal" href="#delModal">Delete!</a>
+    <%= render 'layouts/delete' %>
   <hr>
   <% else %>
     <hr>
