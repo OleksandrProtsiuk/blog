@@ -1,0 +1,20 @@
+
+<!-- Modal -->
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure? </h5>
+      </div>
+      <div class="modal-body">
+        <p>If you delete your post it will be removed from DB immediately. <br>
+          <strong>So there is no way back!</strong>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go back!</button>
+        <%= link_to 'Delete!', post_path, method: :delete, :class => 'btn btn-outline-dark'%>
+      </div>
+    </div>
+  </div>
+</div>

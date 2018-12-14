@@ -21,6 +21,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem 'quilljs-rails', '~> 0.0.4'
 
+gem 'acts-as-taggable-on'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

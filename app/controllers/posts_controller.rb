@@ -46,9 +46,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @post = Post.tagged_with(params[:tag])
+    else
+      @post = Post.all
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body, :user_id, :tag_list)
   end
 end
