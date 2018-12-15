@@ -15,6 +15,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+    @post = Post.where(user_id: session[:user_id])
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    if @user.update(allowed_params)
+      redirect_back(fallback_location: users_path)
+      flash[:notice] = 'Info changed successful'
+    else
+      redirect_back(fallback_location: users_path)
+      flash[:notice] = 'Something went wrong. Try again later'
+    end
   end
 
   private
@@ -22,4 +34,5 @@ class UsersController < ApplicationController
   def allowed_params
     params.require(:user).permit(:username, :email, :password)
   end
+
 end

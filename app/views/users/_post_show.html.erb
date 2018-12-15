@@ -1,0 +1,18 @@
+
+<% if @post.length > 0 %>
+  <% @post.each do |post| %>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= link_to post.title, post_path(post) %></h4>
+        <small class="card-text">Last update: <%= post.updated_at %><br>
+          Tags:
+          <% post.tag_list.each do |tag| %>
+            <%= link_to tag, tagged_path(tag: tag) %>
+          <% end %>
+        </small>
+      </div>
+    </div>
+    <% end %>
+<% else %>
+  <small><i><strong>You don`t have any posts yet</strong></i></small>
+<% end %>

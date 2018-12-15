@@ -45,3 +45,8 @@ var defaults = {
 
 //This is the global config object
 Quilljs.setDefaults(defaults);
+
+$ ->
+    $('.comment-reply').click ->
+$(this).closest('.comment').find('.reply-form').toggle()
+return
