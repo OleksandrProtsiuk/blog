@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'static_pages/contacts', as: 'contacts'
   get 'static_pages/help', as: 'help'
 
-  get 'sessions/new'
+  # get 'sessions/new'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

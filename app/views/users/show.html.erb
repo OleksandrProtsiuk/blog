@@ -1,8 +1,25 @@
 
 <div class="container">
-  <h1>User Account Page</h1>
-  <p><%= @user.username %></p>
-  <i><small>funny small text about jerks</small></i>
-  <p><%= @user.email %></p>
-  <span class="text-muted"><%= link_to 'Add Post', new_post_path %></span>
+  <i><small>account-page</small></i><br>
+  <small><strong>Username: </strong><%= @user.username %><br>
+     <strong>Email: </strong><%= @user.email %></small>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <p><span class="text-muted"><%= link_to 'Add New Post', new_post_path %></span></p>
+      <p><a data-toggle="modal" href="#Change">Change user data</a></p>
+          <%= render 'users/change' %>
+    </div>
+
+    <div class="col-sm-4">
+      <h3>Your posts</h3>
+      <hr>
+      <%= render 'users/post_show' %>
+    </div>
+
+    <div class="col-sm-4">
+      <h3>Your comments</h3>
+      <hr>
+    </div>
+  </div>
 </div>

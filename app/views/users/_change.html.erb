@@ -1,0 +1,39 @@
+
+<div class="modal fade" id="Change" tabindex="-1" role="dialog" aria-labelledby="#ChangeModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change data</h5>
+      </div>
+      <div class="modal-body">
+        <p class="alert-notice">Warning! Use only valid data.</p>
+        <small>
+          <ul>
+            <li>Username can't be blank (minimum is 2 characters)</li>
+            <li>Email can't be blank. Email must be valid.</li>
+            <li>Password can't be blank (minimum is 6 characters)</li>
+          </ul>
+        </small>
+
+        <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+          <div class="field">
+            <p>Username</p>
+            <%= f.text_field :username, { :class => 'form-control' } %>
+          </div>
+          <div class="field">
+            <p>Email</p>
+            <%= f.email_field :email, { :class => 'form-control' } %>
+          </div>
+          <div class="field">
+            <p>Password</p>
+            <%= f.password_field :password, { :class => 'form-control' } %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+            <div class="actions"><%= f.submit :value =>'Save changes', :class => 'btn btn-outline-dark' %></div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,31 +22,5 @@
   <% end %>
 
 <h4>Comments</h4>
-<% @post.comments.each do |comment| %>
-  <div class="row">
-    <small><strong><%= comment.username %></strong>:&nbsp</small>
-    <small><%= comment.body.html_safe %></small>
-  </div>
-<% end %>
 
-<% if current_user %>
-<h4>Add New Comment</h4>
-<%= form_for([@post, @post.comments.build]) do |f|  %>
-
-  <div class="field">
-    <%= f.hidden_field(:username, :value => current_user.username )%>
-    <%= f.hidden_field(:user_id, :value => current_user.id )%>
-    <%= f.hidden_field(:post_id, :value => @post.id )%>
-  </div>
-
-  <div class="field">
-    <%= f.text_area(:body, { :class => 'form-control quill_container' }) %>
-  </div>
-  <div>
-    <p>&nbsp</p>
-  </div>
-  <div class="action">
-    <%= f.submit('Add Comment', { :class => 'btn btn-outline-dark' }) %>
-  </div>
-<% end %>
-<% end %>
+<%= render 'layouts/comment', locals: {commentable: @post, new_comment: @comment} %>
