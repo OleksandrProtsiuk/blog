@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+ # before_action :authenticate_user!
+
+  def index; end
 
   def create
     commentable = commentable_type.constantize.find(commentable_id)
