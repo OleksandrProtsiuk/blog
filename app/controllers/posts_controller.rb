@@ -1,13 +1,8 @@
 class PostsController < ApplicationController
-  # skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:show]
 
   def index
-    if params[:search_field].present?
-      @post = Post.search_for(params[:search_field])
-    else
-      flash[:notice] = 'No results found'
-    end
-    #redirect_to home_path
+    redirect_to home_path
   end
 
   def new
@@ -16,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @new_comment = Comment.build_from(@post, current_user.id, '')
+    # @new_comment = Comment.build_from(@post, current_user.id, '')
   end
 
   def edit
