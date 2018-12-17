@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   # skip_before_action :require_login, only: [:index, :show]
 
   def index
-    #@post = Post.all
-    redirect_to home_path
+    if params[:search_field].present?
+      @post = Post.search_for(params[:search_field])
+    else
+      flash[:notice] = 'No results found'
+    end
+    #redirect_to home_path
   end
 
   def new
