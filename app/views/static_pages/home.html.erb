@@ -1,5 +1,5 @@
 
-<% @post.each do |post| %>
+<% @post.reverse_each do |post| %>
   <div class="card">
     <small class="card-text">
       Posted by: <%= User.find(post.user_id).username %>, Last update: <%= post.updated_at %>
@@ -12,7 +12,7 @@
     </small>
     <h1 class="card-title"><%= link_to post.title, post_path(post) %></h1>
     <div class="card-body">
-      <p class="card-text"><%= post.body.html_safe %></p>
+      <p class="card-text"><%= truncate(post.body.html_safe, length: 350, separator: '>' , :escape => false) %></p>
     </div>
     <hr>
   </div>

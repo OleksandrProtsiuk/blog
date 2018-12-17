@@ -1,6 +1,6 @@
 <h1>Tag search results:</h1>
 <hr>
-<% @post.each do |post| %>
+<% @post.reverse_each do |post| %>
   <h3><%= link_to post.title, post_path(post) %></h3>
   <small>
     Posted by: <%= User.find(post.user_id).username %>, Last update: <%= post.updated_at %>

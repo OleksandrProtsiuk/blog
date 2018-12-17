@@ -1,10 +1,7 @@
 <header class="blog-header py-3">
   <div class="row flex-nowrap justify-content-between align-items-center">
     <div class="col-4 pt-1">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-1" type="search" placeholder="Параша не пашет ! ! !" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" formaction="">Search</button>
-      </form>
+      <%= link_to 'Search', results_path %>
     </div>
     <div class="col-4 text-center">
       <span data-toggle="tooltip" data-placement="right" title="Go Home"><%= link_to image_tag('logo.jpg', width: 70), home_path %></span>
