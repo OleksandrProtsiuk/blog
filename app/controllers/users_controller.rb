@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, exept: [:new]
+
   def new
     @user = User.new
   end
@@ -29,10 +31,6 @@ class UsersController < ApplicationController
       redirect_back(fallback_location: users_path)
       flash[:notice] = 'Something went wrong. Try again later'
     end
-  end
-
-  def check
-
   end
 
   private
