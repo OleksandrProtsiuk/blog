@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, exept: [:new]
+  skip_before_action :require_login
 
   def new
     @user = User.new
