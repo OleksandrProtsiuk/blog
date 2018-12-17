@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   default_url_options :host => '0.0.0.0:3000'
   root 'static_pages#home', as: 'home'
 
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :posts
   resources :account_activations
+  resources :password_resets
 
   resources :posts do
     resources :comments, as: 'comments'
