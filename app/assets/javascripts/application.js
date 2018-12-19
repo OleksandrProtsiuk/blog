@@ -21,6 +21,10 @@
 
 //= require quill.global
 
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+});
+
 hljs.configure({   // optionally configure hl js
     languages: ['javascript', 'ruby', 'python']
 });

@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'scoped_search', '~> 4.1', '>= 4.1.6'
 gem 'pg', '~> 1.1', '>= 1.1.3'
 
-gem 'letter_opener', '~> 1.7'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -55,7 +55,7 @@ end
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  
+  gem 'letter_opener', '~> 1.7'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
