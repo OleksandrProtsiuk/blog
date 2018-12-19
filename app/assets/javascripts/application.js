@@ -21,6 +21,8 @@
 
 //= require quill.global
 
+$(document).on("ready page:load", nonIdempotentFunction);
+
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
 });
