@@ -1,6 +1,6 @@
 <h2>Add  New  Post</h2>
 <div class="form">
-<%= form_for :post, url: posts_path do |f|  %>
+<%= form_for :post, url: preview_path, method: 'get' do |f|  %>
   <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>
       <div class="alert alert-alert"><%= msg %></div>
@@ -25,6 +25,8 @@
     <div>
       <p>&nbsp</p>
     </div>
-    <div class="actions"><%= f.submit({ :class => 'btn btn-outline-dark' }) %></div>
+    <div class="actions">
+      <%= f.submit 'Preview', :class => 'btn btn-outline-dark' %>
+    </div>
 <% end %>
 </div>
