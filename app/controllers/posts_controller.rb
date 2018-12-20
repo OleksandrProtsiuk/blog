@@ -35,15 +35,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    # params[:user_id_id] = session[:user_id]
     @post = Post.new(post_params)
-    # @post.user_id_id = current_user.id
 
     if @post.save
       redirect_to @post
     else
       render 'new'
     end
+  end
+
+  def preview
+    @post = Post.new(post_params)
   end
 
   def tagged

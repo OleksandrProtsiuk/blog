@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get '/tagged', to: 'posts#tagged', as: :tagged
+  get '/preview', to: 'posts#preview', as: 'preview'
+  post '/preview', to: 'posts#create'
   # get 'search/results', to: 'search#results', as: 'search'
   get 'search/results', to: 'search#results', as: 'results'
 

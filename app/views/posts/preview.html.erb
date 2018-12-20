@@ -1,0 +1,32 @@
+
+<div class="card">
+  <small class="card-text">
+    Posted by: <%= User.find(@post.user_id).username %>, Last update: <%= @post.updated_at %>
+  </small>
+  <small class="card-text">
+    Tags:
+    <% @post.tag_list.each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </small>
+  <h1 class="card-title"><%=@post.title%></h1>
+  <div class="card-body">
+    <p class="card-text"><%= @post.body.html_safe %></p>
+  </div>
+  <div class="card-footer">
+
+    <div class="form">
+      <%= form_for :post, url: posts_path do |f|  %>
+          <%= f.hidden_field(:title, :value => @post.title)%>
+          <%= f.hidden_field(:body, :value => @post.body) %>
+          <%= f.hidden_field(:tag_list, :value => @post.tag_list)  %>
+          <%= f.hidden_field(:user_id, :value => current_user.id )%>
+        <div class="actions">
+          <# link_to 'Edit', :back, :class => 'btn btn-outline-dark'%>
+          <%= f.submit 'Save', :class => 'btn btn-outline-dark' %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
