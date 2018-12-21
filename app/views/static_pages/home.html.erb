@@ -12,8 +12,7 @@
     </small>
     <h1 class="card-title"><%= link_to post.title, post_path(post) %></h1>
     <div class="card-body">
-      <p class="card-text"><%= truncate(post.body.html_safe, length: 350, separator: '>', :escape => false) %>
-                           <%= post.body.html_safe %></p>
+      <p class="card-text"><%= truncate(post.body.html_safe, length: 350, separator: '>', :escape => false) %></p>
     </div>
     <hr>
   </div>

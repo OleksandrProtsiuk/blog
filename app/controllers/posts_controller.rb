@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @new_comment = Comment.build_from(@post, current_user.id, '')
+    # Comment.find(params[:post_id]) ? @comments = Comment.find(params[:post_id]) : @comments = 'No more comments yet'
   end
 
   def edit
