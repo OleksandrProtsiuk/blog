@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # Comment.find(params[:post_id]) ? @comments = Comment.find(params[:post_id]) : @comments = 'No more comments yet'
   end
 
   def edit

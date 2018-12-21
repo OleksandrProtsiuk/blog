@@ -24,6 +24,7 @@
 <h4>Comments</h4>
 <#= nested_comments @comments.subtree.arrange(:order => :created_at) %>
 
+<hr>
 <% @post.comments.each do |comment| %>
   <div class="container">
     <small><strong><%= comment.username %></strong></small>
@@ -39,6 +40,7 @@
     <%= f.hidden_field(:username, :value => current_user.username )%>
     <%= f.hidden_field(:user_id, :value => current_user.id )%>
     <%= f.hidden_field(:post_id, :value => @post.id )%>
+    <%= f.hidden_field :parent_id %>
   </div>
 
   <div class="field">
