@@ -1,0 +1,14 @@
+
+<form class="form-inline my-2 my-lg-0">
+  <%= form_tag('search/results', method: 'get', remote: true) do %>
+    <div class="field">
+      <input class="form-control" <%= text_field_tag :search_field %>
+    </div>
+    <div>
+      <p>&nbsp</p>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Search', :class => 'btn btn-outline-dark' %>
+    </div>
+  <% end %>
+</form>
