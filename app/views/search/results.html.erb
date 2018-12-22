@@ -1,21 +1,5 @@
 
-<form class="form-inline my-2 my-lg-0">
-  <%= form_tag('search/results', method: 'get') do %>
-    <div class="field">
-      <input class="form-control" <%= text_field_tag :search_field %>
-    </div>
-    <div>
-      <p>&nbsp</p>
-    </div>
-    <div class="actions">
-      <%= submit_tag 'Search',  { :class => 'btn btn-outline-dark' }%>
-    </div>
-  <% end %>
-</form>
 <div class="container">
-  <div>
-    <p>&nbsp</p>
-  </div>
   <% if @res %>
 <h3>Search results: <%= @res.length %></h3>
 <% @res.reverse_each do |post| %>
@@ -28,8 +12,8 @@
   </div>
 <% end %>
   <% else %>
-    <div class="notice">
-      <P>No results found</P>
+    <div class="alert-notice">
+      <p>No results found</p>
     </div>
 <% end %>
 </div>

@@ -33,23 +33,23 @@
 <% end %>
 
 <hr>
+<% if current_user%>
 <h2>Add New Comment</h2>
 <%= form_for([@post, @post.comments.build]) do |f|  %>
-
   <div class="field">
     <%= f.hidden_field(:username, :value => current_user.username )%>
     <%= f.hidden_field(:user_id, :value => current_user.id )%>
     <%= f.hidden_field(:post_id, :value => @post.id )%>
     <%= f.hidden_field :parent_id %>
   </div>
-
   <div class="field">
     <%= f.text_area(:body, { :class => 'form-control' }) %>
   </div>
-  <div>
-    <p>&nbsp</p>
-  </div>
-  <div class="action">
-    <%= f.submit('Add Comment', { :class => 'btn btn-outline-dark' }) %>
+  <div><p>&nbsp</p></div>
+  <div class="action"><%= f.submit('Add Comment', { :class => 'btn btn-outline-dark' }) %></div>
+<% end %>
+  <% else %>
+  <div align="center">
+    <small class="alert-notice"><strong>Log in to leave comment</strong></small>
   </div>
 <% end %>
