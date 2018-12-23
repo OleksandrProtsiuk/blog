@@ -168,6 +168,8 @@ GEM
     ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
     rubyzip (1.2.2)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.7.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -247,6 +249,7 @@ DEPENDENCIES
   puma (~> 3.11)
   quilljs-rails (~> 0.0.4)
   rails (~> 5.2.2)
+  russian (~> 0.6.0)
   sass-rails (~> 5.0)
   scoped_search (~> 4.1, >= 4.1.6)
   selenium-webdriver

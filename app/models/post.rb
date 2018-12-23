@@ -4,4 +4,9 @@ class Post < ApplicationRecord
   acts_as_taggable_on :tags
 
   scoped_search on: [:title, :body]
+
+  def to_param
+    slug
+  end
+
 end

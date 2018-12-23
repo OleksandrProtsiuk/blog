@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go back!</button>
-        <%= link_to 'Delete!', post_path, method: :delete, :remote => :true, :class => 'btn btn-outline-dark'%>
+        <%= link_to 'Delete!', post_path, method: :delete, :class => 'btn btn-outline-dark'%>
       </div>
     </div>
   </div>
