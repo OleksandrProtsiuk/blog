@@ -10,17 +10,19 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:slug])
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:slug])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:slug])
 
     if @post.update(post_params)
+       @post.slug = Russian.translit(@post.title).parameterize.truncate(80, omission: '')
+       @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
@@ -35,6 +37,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.slug = Russian.translit(@post.title).parameterize.truncate(80, omission: '')
 
     if @post.save
       redirect_to @post
@@ -58,6 +61,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :tag_list)
+    params.require(:post).permit(:title, :body, :user_id, :tag_list, :slug)
   end
+
 end

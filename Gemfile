@@ -21,6 +21,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem 'quilljs-rails', '~> 0.0.4'
 
+gem 'russian', '~> 0.6.0'
+
 gem 'acts-as-taggable-on'
 # gem 'acts_as_commentable_with_threading', '~> 2.0', '>= 2.0.1'
 gem 'ancestry', '~> 3.0', '>= 3.0.5'
